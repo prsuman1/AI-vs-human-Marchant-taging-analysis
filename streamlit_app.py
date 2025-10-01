@@ -19,7 +19,7 @@ st.markdown("### Ground Truth: Human-labeled Database (DB)")
 # Load data
 @st.cache_data
 def load_data():
-    df = pd.read_csv('data.csv')
+    df = pd.read_csv('data1.csv')
     return df
 
 df = load_data()
@@ -32,10 +32,10 @@ st.sidebar.info(f"Total Records: {len(df)}")
 st.sidebar.header("🔍 Data Filters")
 
 # Get unique values for each DB field
-specialty_options = ['All'] + sorted(df['db_specialty'].unique().tolist())
-equipment_options = ['All'] + sorted(df['db_has_equipments'].unique().tolist())
-coman_options = ['All'] + sorted(df['db_is_coman'].unique().tolist())
-fb_options = ['All'] + sorted(df['db_is_food_beverage'].unique().tolist())
+specialty_options = ['All'] + sorted([str(x) for x in df['db_specialty'].unique().tolist()])
+equipment_options = ['All'] + sorted([str(x) for x in df['db_has_equipments'].unique().tolist()])
+coman_options = ['All'] + sorted([str(x) for x in df['db_is_coman'].unique().tolist()])
+fb_options = ['All'] + sorted([str(x) for x in df['db_is_food_beverage'].unique().tolist()])
 
 # Filter dropdowns
 filter_specialty = st.sidebar.selectbox("DB Specialty", specialty_options)
