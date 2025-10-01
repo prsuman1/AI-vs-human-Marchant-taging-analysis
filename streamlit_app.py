@@ -19,7 +19,7 @@ st.markdown("### Ground Truth: Human-labeled Database (DB)")
 # Load data
 @st.cache_data
 def load_data():
-    df = pd.read_csv('Copy of False positive comparison - no_prompt_combined.csv')
+    df = pd.read_csv('data.csv')
     return df
 
 df = load_data()
